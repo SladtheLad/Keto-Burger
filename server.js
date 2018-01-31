@@ -11,10 +11,14 @@ app.use(express.static("public"));
 
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(bodyParser.json());
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({
+  defaultLayout: "main"
+}));
 app.set("view engine", "handlebars");
 
 app.use(require('./controllers/burgers_controller.js'));

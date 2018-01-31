@@ -1,4 +1,3 @@
-
 // Imports Express and burger.js
 const router = require('express').Router();
 const burger = require('../models/burger.js');
