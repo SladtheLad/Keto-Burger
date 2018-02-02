@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const app = express();
 const exphbs = require('express-handlebars');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3006;
 
 app.use(express.static("public"));
 
