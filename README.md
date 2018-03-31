@@ -1,5 +1,5 @@
 # Keto Burgers aka: *Eggs, Cheese, Bacon plz*
-![alt text](/public/assets/img/rsz_keto-burger-avocado1.jpg)
+![keto burger](/public/assets/img/FWUy4HQ.jpg)
 
 
 ### Hungry yet?! 
