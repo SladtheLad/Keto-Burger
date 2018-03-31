@@ -1,40 +1,42 @@
-// Requires connection.js
-const connection = require('./connection.js');
+/* In the orm.js file, create the methods that will execute the necessary MySQL commands in the controllers. 
+These are the methods you will need to use in order to retrieve and store data in your database.
 
-// Exports queries for use in burger.js
+selectAll()
+insertOne()
+updateOne()
+Export the ORM object in module.exports. */
+
+const conn = require('./connection.js');
+
 module.exports = {
+    selectAll: async function() {
+        return new Promise( (resolve, reject) => {
+            const query = `SELECT * FROM burgers`;
+            conn.query(query, (err, res) => {
+                if(err) reject(err);
+                resolve(res);
+            });
+        });
+    },
 
-  // Select All query
-  selectAll: async function () {
-    return new Promise((resolve, reject) => {
-      let query = `SELECT * FROM burgers`;
-      connection.query(query, (err, res) => {
-        if (err) reject(err);
-        resolve(res);
-      });
-    });
-  },
-  
-  // Insert One query
-  insertOne: async function (burger) {
-    return new Promise((resolve, reject) => {
-      let query = `INSERT INTO burgers (burger_name) VALUES (?)`;
-      connection.query(query, burger, (err, res) => {
-        if (err) reject(err);
-        resolve(res);
-      });
-    });
-  },
+    insertOne: async function(burger) {
+        return new Promise( (resolve, reject) => {
+            const query = `INSERT INTO burgers (burger_name) VALUES (?)`;
+            conn.query(query, burger, (err, res) => {
+                if(err) reject(err);
+                resolve(res);
+            });
+        });
+    },
 
-  // Update One query
-  updateOne: async function (id) {
-    return new Promise((resolve, reject) => {
-      let query = `UPDATE burgers SET devoured = true WHERE id = ?`;
-      connection.query(query, id, (err, res) => {
-        if (err) reject(err);
-        console.log("Burger updated");
-        resolve(res);
-      });
-    });
-  }
+    updateOne: async function(id) {
+        return new Promise( (resolve, reject) => {
+            const query = `UPDATE burgers SET devoured = true WHERE id = ?`;
+            conn.query(query, id, (err, res) => {
+                if(err) reject(err);
+                console.log("Burger updated");
+                resolve(res);
+            });
+        });
+    }
 }

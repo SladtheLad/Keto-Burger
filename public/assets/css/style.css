@@ -1,9 +1,17 @@
-body {
-  font-family: 'Germania One', cursive;
-  font-size: 20px;
+.row {
+    margin-bottom: 20px;
 }
 
 #burger-img {
-  max-width: 400px;
-  max-height: 400px;
+    max-height: 150px;
+    margin: 0 auto 20px;
+}
+
+#submit-btn {
+    margin: auto;
+    display: block;
+}
+
+.del-btn {
+    float: right;
 }
